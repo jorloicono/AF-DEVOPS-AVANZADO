@@ -1,6 +1,6 @@
 # AF-DEVOPS-AVANZADO
 
-## BitBucket
+## Bitbucket
 
   - Manejo del repositorio
   - Manejo de Issues
