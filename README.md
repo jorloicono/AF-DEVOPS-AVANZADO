@@ -2,13 +2,23 @@
 
 ## Bitbucket
 
-  - Manejo del repositorio
-  - Manejo de Issues
+  - Introducción a los CVS
+  - Gestión de un repositorio remoto
+  - Ramificaciones
   - GitFlow
-  - Ramas de desarrollo
-  - Ramas de Release
-  - Ramas Hotfix
-  - PullRequest
+    - Ramas de desarrollo
+    - Ramas de Release
+    - Ramas Hotfix
+  - Pull Request
+
+## Pruebas automatizadas
+
+  - Pruebas de unidad: Junit
+  - Pruebas de integración: Mockito
+  - Pruebas de aceptación Frontnend: Selenium
+  - Pruebas API Rest Backend
+  - Pruebas de rendimiento: Jmeter/Gatling/Blazemeter
+  - Ejecución de pruebas automatizadas con Jenkins
 
 ## Jenkins
 
@@ -19,16 +29,7 @@
   - Invocación de comandos y scripts externos
   - Integración con Maven
   - Notificaciones
-
-## Pruebas automatizadas
-
-  - Pruebas de unidad: Junit
-  - Pruebas de integración: Mockito
-  - Pruebas de aceptación Fontnend: Selenium
-  - Pruebas API Rest Backend
-  - Pruebas de rendimiento: Jmeter/Gatling/Blazemeter
-  - Ejecución de pruebas automatizadas con Jenkins
-
+    
 ## Jenkins avanzado
 
   - Generación y subida de artefactos a Artifactory
