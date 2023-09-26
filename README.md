@@ -15,7 +15,7 @@
 
   - Pruebas de unidad: Junit
   - Pruebas de integración: Mockito
-  - Pruebas de aceptación Fontnend: Selenium
+  - Pruebas de aceptación Frontnend: Selenium
   - Pruebas API Rest Backend
   - Pruebas de rendimiento: Jmeter/Gatling/Blazemeter
   - Ejecución de pruebas automatizadas con Jenkins
