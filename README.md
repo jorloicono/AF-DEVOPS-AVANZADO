@@ -3,6 +3,7 @@
 Contraseña: 123123123Ab
 
 - GRABACIÓN 26/09: https://iconotrainingconsultingsl.my.webex.com/iconotrainingconsultingsl.my/ldr.php?RCID=4dbea8cc882c3ac0da63b8fe7ed350a5
+- GRABACIÓN 28/09: https://iconotrainingconsultingsl.my.webex.com/iconotrainingconsultingsl.my/ldr.php?RCID=61851ef3da4008fd7b8d440657cf2392
   
 ## Bitbucket
 
