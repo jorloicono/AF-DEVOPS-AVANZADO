@@ -22,23 +22,12 @@ public class CAssumptionsTest {
 
     @Test
     void name() {
-        String jdk = System.getenv("JAVA_HOME");
-        assumeTrue(jdk.contains("jdk-11"));
-        assumeFalse(jdk.contains("jdk-16.0.2"));
+        String jdk = System.getProperty("java.home");
+        assumeTrue(jdk.contains("11"));
+        assumeFalse(jdk.contains("16.0.2"));
 
         System.out.println("El test continua");
     }
 
-    @Test
-    void name2() {
-        String jdk = System.getenv("JAVA_HOME");
 
-        assumingThat(jdk.contains("jdk-11"),
-                () -> {
-
-
-                }
-        );
-
-    }
 }
