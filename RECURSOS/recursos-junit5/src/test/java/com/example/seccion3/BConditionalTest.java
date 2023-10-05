@@ -18,7 +18,7 @@ public class BConditionalTest {
         System.out.println("test2 java 16");
     }
 
-    @EnabledForJreRange(min = JRE.JAVA_8, max=JRE.JAVA_11)
+    @EnabledForJreRange(min = JRE.JAVA_8, max=JRE.JAVA_17)
     @Test
     void test3() {
         System.out.println("test3 range");
@@ -26,7 +26,7 @@ public class BConditionalTest {
 
 
     @Test
-    @EnabledOnOs(OS.LINUX)
+    @EnabledOnOs(OS.WINDOWS)
     void test4() {
         System.out.println("test4 linux");
     }

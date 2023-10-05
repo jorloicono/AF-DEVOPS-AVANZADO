@@ -1,5 +1,6 @@
 package com.example.seccion3;
 
+import org.junit.jupiter.api.Assumptions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -23,8 +24,8 @@ public class CAssumptionsTest {
     @Test
     void name() {
         String jdk = System.getProperty("java.home");
-        assumeTrue(jdk.contains("11"));
-        assumeFalse(jdk.contains("16.0.2"));
+        assumeFalse(jdk.contains("11"));
+        assumeTrue(jdk.contains("16.0.2"));
 
         System.out.println("El test continua");
     }

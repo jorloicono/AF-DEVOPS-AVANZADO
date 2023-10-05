@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Test page</title>
+<meta charset="utf-8">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+/* Style the header */
+.header {
+  background-color: #f1f1f1;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Style the top navigation bar */
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+/* Style the topnav links */
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change color on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Create three unequal columns that floats next to each other */
+.column {
+  float: left;
+  padding: 10px;
+}
+
+/* Left and right column */
+.column.side {
+  width: 20%;  
+}
+
+/* Middle column */
+.column.middle {
+  width: 50%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column.side, .column.middle {
+    width: 100%;
+  }
+}
+
+body {
+	font-family: "Lucida Console";
+}
+
+h2 {
+	color: blue;
+	font-family: "Verdana";
+}
+
+boton_xpath {
+	padding: 3px;
+}
+
+#resultado {
+	font-weight: bold;
+}
+
+.botonAlert {
+	margin: 7px;
+}
+
+.botonCSS {
+	margin: 6px;
+}
+
+</style>
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script>
+  
+ $(document).ready(function(){
+  
+		//LÓGICA PARA TEXTBOXES				
+		$("button#botonLogin").click(function(){
+			var usuario = $("#username").val();
+			var password = $("#password").val();
+			if($("#mostrarAlert").is(":checked")){
+				alert("Mensaje del alert:\n El usuario es: "+usuario+" y el password: "+password);
+			}
+			$("p#resultado").text("El usuario es: " + usuario + " y el password: " + password);
+		});
+		
+		$("#username,#password").each(function(){
+			$(this).keyup(function(event) {
+				if (event.keyCode === 13) {
+					$("button#botonLogin").click();
+				}
+			});
+		});
+
+		
+		//LÓGICA PARA COMBOBOXES
+		$("button#enviaComboboxes").click(function(){
+			var seleccionados = [];
+			$.each($("#combobox1 option:selected"), function(){            
+				seleccionados.push($(this).val());
+			});
+			
+			$.each($("#combobox2 option:selected"), function(){            
+				seleccionados.push($(this).val());
+			});
+			
+			$("p#resultado").text(seleccionados.join(","));
+		});
+		
+		//LÓGICA PARA RADIOBUTTONS
+		$("button#enviaRadiobutton").click(function(){
+			
+			var seleccionados = [];
+			$.each($("input[type='radio']:checked"), function(){            
+				seleccionados.push($(this).val());
+			});
+						
+			$("p#resultado").text(seleccionados.join(","));
+		});
+		
+		
+		//LÓGICA PARA CHECKBOXES
+		$("button#enviaCheckboxes").click(function(){
+			
+			var seleccionados = [];
+			$.each($("input[type='checkbox']:checked"), function(){            
+				seleccionados.push($(this).val());
+			});
+						
+			$("p#resultado").text(seleccionados.join(","));
+		});
+		
+		
+		//LÓGICA PARA CSS SELECTOR
+		
+		$("div[id^='contenedorCSS']>button").each(function(){
+		
+			$(this).click(function(){
+				alert("Has pulsado el botón: "+$(this).attr("value")+" de los CSS selector.");
+			});
+		
+		});
+		
+		//LÓGICA PARA IMPLICIT WAIT
+		setTimeout(function(){
+			var botonImplicitWait =  $("<button/>", {
+				text: "No aparezco hasta pasados 3 segundos después de cargar la web!",
+				id: "implicitWaitButton",
+				click: function(){
+					$("p#resultado").text("HAS PULSADO EL BOTÓN IMPLICIT WAIT CON ÉXITO! :D");
+				}
+			});
+			
+			$("div#implicitWaitDiv").append(botonImplicitWait);
+		},3000);
+		
+		//LÓGICA PARA IMPLICIT WAIT
+		setTimeout(function(){
+			var botonExplicitWait =  $("<button/>", {
+				text: "No aparezco hasta pasados 3 segundos después de cargar la web...y no me habilito hasta pasados 6!",
+				id: "explicitWaitButton",
+				click: function(){
+					$("p#resultado").text("HAS PULSADO EL BOTÓN EXPLICIT WAIT CON ÉXITO! :D");
+				}
+			});
+			
+			botonExplicitWait.attr("disabled",true);
+			
+			$("div#explicitWaitDiv").append(botonExplicitWait);
+		},3000);
+		
+		setTimeout(function(){
+			$("#explicitWaitButton").attr("disabled",false);
+		},6000)
+		
+		
+		
+		
+		//LÓGICA PARA ALERTS
+		
+		$("#buttonAlertSimple").click(function(){
+			alert("Esto es un Alert SIMPLE");
+		});
+		$("#buttonAlertConfirm").click(function(){
+			var respuesta = confirm("Esto es un Alert CONFIRM");
+			if(respuesta == true){
+				$("p#resultado").text("Has pulsado ACEPTAR en el alert");
+			} else{
+				$("p#resultado").text("Has pulsado CANCELAR en el alert");
+			}
+		});
+		$("#buttonAlertPrompt").click(function(){
+			var texto = prompt("Esto es un Alert PROMPT");
+			
+			if(texto != null){
+				$("p#resultado").text("Tu texto es: "+texto);
+			} 
+		});
+		
+		//LÓGICA PARA XPath
+		$(".boton_xpath").each(function(){
+			$(this).click(function(){
+				alert("Has pulsado el botón: "+$(this).val()+" con atributo "+$(this).attr("randomattribute")+" y " + $(this).parent().attr("value") + " de XPATH");
+			});
+		});
+		
+		
+});
+
+</script>
+
+
+</head>
+<body>
+<!--
+<div class="header">
+  <h1>Test page</h1>
+</div>
+
+<div class="topnav">
+  <a href="#">Link</a>
+</div>
+-->
+
+
+<div class="row">
+  <div class="column side">
+	<div class="textboxes">
+		<h2>Usuario (Textbox)</h2>
+		<input type="text" id="username"/>
+		<br>
+		<h2>Password (Textbox)</h2>
+		<input type="password" id="password"/>		
+		<br><br>
+		<input type="checkbox" id="mostrarAlert"> Mostrar alert (Checkbox)</input>
+		<br><br>
+		<button id="botonLogin"/>Login</button> (Button)
+		<br><br>
+		<h2>Valores introducidos - Resultado:</p></h2>
+		<p id="resultado">¡Aquí veremos los resultados!</p>
+	</div>
+  </div>
+  
+    <div class="column side">
+		<h2>Combobox Simple</h2>
+			<select id="combobox1">
+				<option value="pan">Pan</option>
+				<option value="huevos">Huevos</option>
+				<option value="leche">Leche</option>
+				<option value="carne">Carne</option>
+			</select>
+		<br>
+		<h2>Combobox Múltiple</h2>
+			<select id="combobox2" multiple>
+				<option value="manzana">Manzana</option>
+				<option value="pera">Pera</option>
+				<option value="platano">Plátano</option>
+				<option value="granada">Granada</option>
+			</select>
+		<br>
+		<br>
+		<button id="enviaComboboxes"/>Envía Comboboxes</button>
+	</div>
+  
+  <div class="column side">
+		<h2>Radiobutton</h2>
+			<h3>Bebidas:</h3>
+				<input type="radio" name="bebida" value="refresco"> Refresco</input><br>
+				<input type="radio" name="bebida" value="agua"> Agua</input><br>
+				<input type="radio" name="bebida" value="cafe"> Cafe</input><br>
+			<br>
+			<h3>Comidas:</h3>
+				<input type="radio" name="comida1" value="solomillo"> Solomillo</input><br>
+				<input type="radio" name="comida2" value="dorada"> Dorada</input><br>
+				<input type="radio" name="comida3" value="pasta"> Pasta</input><br>
+			
+		<br>
+		<br>
+		<button id="enviaRadiobutton"/>Envía Radiobutton</button>
+		 <h2>Checkbox</h2> 
+			<h3>Lista de compra</h3>
+				<input type="checkbox" name="listaCompra" value="verdura"> Verdura</input><br>
+				<input type="checkbox" name="listaCompra" value="pescado"> Pescado</input><br>
+				<input type="checkbox" name="listaCompra" value="carne"> Carne</input><br>
+				<input type="checkbox" name="listaCompra" value="kleenex"> Kleenex</input><br>
+		
+		<br>
+		<br>
+		<button id="enviaCheckboxes"/>Envía Checkboxes</button>
+</div>
+  
+  <div class="column side">
+    <h2>CSS Selector</h2>
+	
+		<div id="contenedorCSS1" class="contenedor">
+		<h3> Contenedor CSS 1 </h3>
+		<button type="button" class="botonCSS" value="Primer botón">Primer botón</button><br>
+		<button type="button" class="botonCSS" value="Segundo botón">Segundo botón</button>
+		</div>
+		<br>
+		<br>
+		<div id="contenedorCSS2" class="contenedor">
+		<h3> Contenedor CSS 2 </h3>
+		<button type="button" class="botonCSS" value="Tercer botón">Segundo botón</button><br>
+		<button type="button" class="botonCSS" value="Cuarto botón">Cuarto botón</button>
+		</div>
+		
+	</div>
+
+	<div class="column side">
+    <h2>XPath</h2>
+	  
+		<div id="contenedorInicial" class="contenedor" value="Contenedor Inicial">
+		<br><p>Contenedor Inicial - Opción 115</p>
+		<button randomattribute="115" class="boton_xpath" value="Aceptar">Aceptar</button>		
+		<button randomattribute="115" class="boton_xpath" value="Cancelar">Cancelar</button>
+		<br><p>Contenedor Inicial - Opción 116</p>
+		<button randomattribute="116" class="boton_xpath" value="Aceptar">Aceptar</button>
+		<button randomattribute="116" class="boton_xpath" value="Cancelar">Cancelar</button>
+		<br><p>Contenedor Inicial - Opción 117</p>
+		<button randomattribute="117" class="boton_xpath" value="Aceptar">Aceptar</button>
+		<button randomattribute="117" class="boton_xpath" value="Cancelar">Cancelar</button>
+		</div>
+		<br>
+		<br>
+		<div id="contenedorPrincipal" class="contenedor" value="Contenedor Principal">		
+		<br><p>Contenedor Principal - Opción 115</p>
+		<button randomattribute="115" class="boton_xpath" value="Aceptar">Aceptar</button>		
+		<button randomattribute="115" class="boton_xpath" value="Cancelar">Cancelar</button>
+		<br><p>Contenedor Principal - Opción 116</p>
+		<button randomattribute="116" class="boton_xpath" value="Aceptar">Aceptar</button>
+		<button randomattribute="116" class="boton_xpath" value="Cancelar">Cancelar</button>
+		<br><p>Contenedor Principal - Opción 117</p>
+		<button randomattribute="117" class="boton_xpath" value="Aceptar">Aceptar</button>
+		<button randomattribute="117" class="boton_xpath" value="Cancelar">Cancelar</button>
+		</div>
+		
+	</div>
+	
+	<div class="column side">
+    <h2>CALENDARIO - DATEPICKER</h2>	  
+		<input type="datetime-local" name="fecha"/>		
+	</div>
+	
+	
+	
+	
+	<div class="column side">
+    <h2>Ejemplo para IMPLICIT WAIT</h2>	  
+		<div id="implicitWaitDiv"></div>		
+	</div>
+	
+	
+	<div class="column side">
+    <h2>Ejemplo para EXPLICIT WAIT</h2>	  
+		<div id="explicitWaitDiv"></div>		
+	</div>
+	
+	<div class="column side">
+    <h2>Ejemplo para ALERTS</h2>	  
+		<button id="buttonAlertSimple" class="botonAlert"/>Púlsame para Alert SIMPLE</button><br><br>
+		<button id="buttonAlertConfirm" class="botonAlert">Púlsame para Alert CONFIRM</button><br><br>
+		<button id="buttonAlertPrompt" class="botonAlert">Púlsame para Alert PROMPT</button><br><br>
+		
+	</div>
+
+</div>
+
+
+
+
+  
+</body>
+</html>

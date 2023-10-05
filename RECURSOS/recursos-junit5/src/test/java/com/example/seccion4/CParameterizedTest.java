@@ -6,6 +6,7 @@ import org.junit.jupiter.params.provider.CsvFileSource;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.EnumSource;
 import org.junit.jupiter.params.provider.MethodSource;
+import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.stream.Stream;
 
@@ -20,6 +21,7 @@ public class CParameterizedTest {
     })
     void test1(Long id, String name, Integer salary) {
         System.out.println("id: " + id + ", name: " + name + ", salary: " + salary);
+        assertTrue(name.contains(id.toString()));
     }
 
     @ParameterizedTest
