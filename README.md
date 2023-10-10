@@ -32,14 +32,7 @@ Contraseña: 123123123Ab
   - Introducción
   - Instalación y configuración
   - Configuración de trabajos de ejecución
-  - Interfaz Git e integración con BitBucket
-  - Invocación de comandos y scripts externos
+  - Integración con GitHub
   - Integración con Maven
   - Notificaciones
-    
-## Jenkins avanzado
-
-  - Generación y subida de artefactos a Artifactory
-  - Métricas de calidad de código automatizadas: Sonar
   - Pipelines
-  - Proyecto MultiBranch
