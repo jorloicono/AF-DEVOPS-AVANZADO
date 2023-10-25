@@ -1,13 +1,5 @@
 # AF-DEVOPS-AVANZADO
 
-Contraseña: 123123123Ab
-
-- GRABACIÓN 26/09: https://iconotrainingconsultingsl.my.webex.com/iconotrainingconsultingsl.my/ldr.php?RCID=4dbea8cc882c3ac0da63b8fe7ed350a5
-- GRABACIÓN 28/09: https://iconotrainingconsultingsl.my.webex.com/iconotrainingconsultingsl.my/ldr.php?RCID=61851ef3da4008fd7b8d440657cf2392
-- GRABACIÓN 03/10: https://iconotrainingconsultingsl.my.webex.com/iconotrainingconsultingsl.my/ldr.php?RCID=557883e499ec7e5d50f9192ef5888cd9
-- GRABACIÓN 05/10: https://iconotrainingconsultingsl.my.webex.com/iconotrainingconsultingsl.my/ldr.php?RCID=4a9758705a9d698206f325cd19b5da1a
-- GRABACIÓN 10/10: https://iconotrainingconsultingsl.my.webex.com/iconotrainingconsultingsl.my/ldr.php?RCID=e94a84407b7907ce60bc82dcbd3d5795
-  
 ## Bitbucket
 
   - Introducción a los CVS
